@@ -10,9 +10,12 @@
   </form>
 
     
-  <ion-list inset>
-    <ion-item *ngFor="let result of results">
-      <h2>{{result}}</h2>
+  <ion-list inset *ngIf="display_results">
+    <ion-item *ngFor="let section_times of results.sections">
+      <ul *ngFor="let times of section_times">
+          <li>{{times}}</li> 
+      </ul>
+      <br>
     </ion-item>
   </ion-list>
 </ion-content>

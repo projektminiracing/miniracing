@@ -18,17 +18,24 @@ import { RaceServiceProvider } from '../../providers/race-service/race-service';
 export class RacePage {
 
   results : any;
+  display_results: boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams, public raceServiceProvider : RaceServiceProvider) {
+    this.display_results = false;
   }
 
   SimulateRace(){
     this.raceServiceProvider.SimulateRace().then(data => {
       this.results = data;
+      this.display_results = true;
+      console.log(JSON.stringify(this.results));
     })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RacePage');
   }
+
+
+  
 
 }

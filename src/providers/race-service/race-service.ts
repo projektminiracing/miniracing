@@ -12,7 +12,7 @@ export class RaceServiceProvider {
 
   apiUrl = 'http://localhost:8000';
   constructor(public http: HttpClient) {
-    console.log('Hello RegisterServiceProvider Provider');
+    console.log('Hello RaceServiceProvider Provider');
   }
 
   SimulateRace(){
@@ -24,5 +24,7 @@ export class RaceServiceProvider {
       }
     })
   }
+
+  
 
 }
