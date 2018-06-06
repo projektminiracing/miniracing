@@ -1,0 +1,60 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="!isLoggedIn()">Login</ion-title>
+    <ion-title *ngIf="isLoggedIn()">Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="tryLogin()" *ngIf="!isLoggedIn()">
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Login</button>
+  </form>
+
+  <button (click)="logout()" ion-button type="submit" block>Logout</button>
+
+
+  <form (ngSubmit)="updateUser()" *ngIf="isLoggedIn()">
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="user_profile.username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="user_profile.email" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user_profile.password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>First name</ion-label>
+        <ion-input type="text" [(ngModel)]="user_profile.firstname" name="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Last name</ion-label>
+        <ion-input type="text" [(ngModel)]="user_profile.lastname" name="lastname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Birthday</ion-label>
+        <ion-input type="date" [(ngModel)]="user_profile.birthday" name="birthday"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>Update profile</button>
+    </form>
+</ion-content>
